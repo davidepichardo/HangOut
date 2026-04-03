@@ -1,0 +1,15 @@
+services:
+  db:
+    image: postgres:16
+    container_name: hangout-db
+    environment:
+      POSTGRES_DB: hangout
+      POSTGRES_USER: hangout_user
+      POSTGRES_PASSWORD: hangout_pass
+    ports:
+      - "5432:5432"
+    volumes:
+      - hangout-data:/var/lib/postgresql/data
+
+volumes:
+  hangout-data:
