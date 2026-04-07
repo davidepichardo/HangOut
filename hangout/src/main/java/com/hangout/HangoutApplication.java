@@ -1,4 +1,4 @@
-package com.hangout.hangout;
+package com.hangout;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

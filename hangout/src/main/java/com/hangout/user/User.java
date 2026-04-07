@@ -76,10 +76,6 @@ public class User {
         return birthDate;
     }
 
-    public void setBirthDate(LocalDate birthDate) {
-        this.birthDate = birthDate;
-    }
-
     @PrePersist
     protected void onCreate() {
         this.creationDate = Instant.now();
@@ -89,10 +85,6 @@ public class User {
         return creationDate;
     }
 
-    public void setCreationDate(Instant creationDate) {
-        this.creationDate = creationDate;
-    }
-
     @PreUpdate
     protected void onUpdate() {
         this.updatedDate = Instant.now();
@@ -100,11 +92,6 @@ public class User {
 
     public Instant getUpdatedDate() {
         return updatedDate;
-    }
-
-    @PreUpdate
-    public void setUpdatedDate(Instant updatedDate) {
-        this.updatedDate = updatedDate;
     }
 
     public Boolean getVerificationStatus() {
