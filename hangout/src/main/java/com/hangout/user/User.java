@@ -13,6 +13,7 @@ import java.time.Instant;
 import java.time.LocalDate;
 import java.util.UUID;
 
+
 @Entity
 @Table(name = "users")
 public class User {
@@ -20,6 +21,12 @@ public class User {
     @GeneratedValue(strategy = GenerationType.UUID)
     @Column(name = "id", nullable = false)
     private UUID id;
+
+    @Column(name =  "oauth_provider", nullable = false)
+    private String oauthProvider; 
+
+    @Column(name = "oauth_provider_id", nullable = false)
+    private String oauthProviderID; 
 
     @Column(name = "email", nullable = false, unique = true)
     private String email;
@@ -44,6 +51,12 @@ public class User {
 
 
     public User() {
+    }
+
+    public User(String email, String oauthProvider, String oauthProviderId) {
+        this.email = email;
+        this.oauthProvider = oauthProvider;
+        this.oauthProviderID = oauthProviderId;
     }
 
     public User(String email, String passwordHash, LocalDate birthDate) {
@@ -74,6 +87,22 @@ public class User {
 
     public LocalDate getBirthDate() {
         return birthDate;
+    }
+
+    public void setOAuthProvider(String oauthProvider) {
+        this.oauthProvider = oauthProvider;
+    }
+
+    public String getOAuthProvider(String oauthProvider) {
+        return oauthProvider;
+    }
+
+    public void setOAuthProviderID(String oauthProvider) {
+        this.oauthProviderID = oauthProvider;
+    }
+
+    public String getOAuthProviderID(String oauthProviderID) {
+        return oauthProviderID;
     }
 
     @PrePersist
