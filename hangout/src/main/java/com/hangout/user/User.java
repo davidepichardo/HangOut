@@ -22,16 +22,16 @@ public class User {
     @Column(name = "id", nullable = false)
     private UUID id;
 
-    @Column(name =  "oauth_provider", nullable = false)
+    @Column(name =  "oauth_provider")
     private String oauthProvider; 
 
-    @Column(name = "oauth_provider_id", nullable = false)
+    @Column(name = "oauth_provider_id")
     private String oauthProviderID; 
 
     @Column(name = "email", nullable = false, unique = true)
     private String email;
 
-    @Column(name = "password_hash", nullable = false)
+    @Column(name = "password_hash")
     private String passwordHash;
 
     @Column(name = "birth_date", nullable = false)
@@ -93,7 +93,7 @@ public class User {
         this.oauthProvider = oauthProvider;
     }
 
-    public String getOAuthProvider(String oauthProvider) {
+    public String getOAuthProvider() {
         return oauthProvider;
     }
 
@@ -101,7 +101,7 @@ public class User {
         this.oauthProviderID = oauthProvider;
     }
 
-    public String getOAuthProviderID(String oauthProviderID) {
+    public String getOAuthProviderID() {
         return oauthProviderID;
     }
 

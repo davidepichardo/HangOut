@@ -35,7 +35,8 @@ public class JwtService {
         return claims.getSubject();
     }
 
-    // public Boolean validateToken(String email, String token) { 
-
-    // }
+    public Boolean validateToken(String email, String token) { 
+        final String extractedEmail = extractEmail(token); 
+        return (extractedEmail.equals(email));
+    }
 }

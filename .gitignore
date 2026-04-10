@@ -2,7 +2,7 @@
 *.class
 
 # Enviroment vairable
-.env 
+*.env 
 
 # Log file
 *.log
