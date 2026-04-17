@@ -3,9 +3,9 @@ package com.hangout.auth.jwt;
 import org.springframework.stereotype.Service;
 import org.springframework.beans.factory.annotation.Value;
 
-
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.Claims;
+import io.jsonwebtoken.JwtException;
 import io.jsonwebtoken.security.Keys;
 
 import java.time.Duration;
@@ -35,6 +35,18 @@ public class JwtService {
         return claims.getSubject();
     }
 
+    public boolean isTokenValid(String token) {
+        try {
+            Jwts.parser()
+            .verifyWith(Keys.hmacShaKeyFor(secret.getBytes()))
+            .build()
+            .parseSignedClaims(token);
+        return true;
+        }
+        catch (JwtException e) {
+            return false;
+        }
+    }
     public Boolean validateToken(String email, String token) { 
         final String extractedEmail = extractEmail(token); 
         return (extractedEmail.equals(email));
